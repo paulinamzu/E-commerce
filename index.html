@@ -1,71 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Producto</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Productos - Mercado Libre</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="navbar">
-    <div class="navbar-top">
-        <img src="images/logo.png" alt="Logo" class="logo">
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar">
+    <div class="navbar">
+        <div class="navbar-top">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos, marcas y más">
+            </div>
+        </div>
+        <div class="navbar-bottom">
+            <div class="left">
+                <span>CP: 66359</span>
+                <a href="#">Categorías</a>
+                <a href="#">Ofertas</a>
+                <a href="#">Histórico</a>
+                <a href="#">Supermercado</a>
+                <a href="#">Moda</a>
+                <a href="#">Ayuda</a>
+            </div>
+            <div class="right">
+                <a href="#">Usuario</a>
+                <a href="#">Compras</a>
+                <a href="#">Favoritos</a>
+                <img src="images/notificaciones.png" alt="Notificaciones">
+                <img src="images/carrito.png" alt="Carrito de Compras">
+            </div>
         </div>
     </div>
-    <div class="navbar-bottom">
-        <div class="left">
-            <span>CP: 66359</span>
-            <a href="#">Categorías</a>
-            <a href="#">Ofertas</a>
-            <a href="#">Histórico</a>
-            <a href="#">Supermercado</a>
-            <a href="#">Moda</a>
-            <a href="#">Ayuda</a>
-        </div>
-        <div class="right">
-            <a href="#">Usuario</a>
-            <a href="#">Compras</a>
-            <a href="#">Favoritos</a>
-            <img src="images/notificaciones.png" alt="Notificaciones">
-            <img src="images/carrito.png" alt="Carrito de Compras">
-        </div>
-    </div>
-</div>
-<div class="product-container">
-    <div class="product-images">
-        <img src="images/producto.png" alt="POND'S Ácido Hialurónico Serum Booster" class="product-image">
-        <div class="thumbnail-images">
-            <img src="images/producto.png" alt="Thumbnail 1">
-            <img src="images/producto1.png" alt="Thumbnail 2">
-            <img src="images/producto2.png" alt="Thumbnail 3">
-        </div>
-    </div>
-    <div class="product-details">
-        <h1>POND'S Ácido Hialurónico Serum Booster 30g</h1>
-        <div class="stars">★★★★★</div>
-        <p>15 opiniones</p>
-        <p class="price">$168.00</p>
-        <p class="payment-methods">Ver métodos de pago</p>
-        <p class="delivery-info">Llega mañana</p>
-        <p class="more-delivery-options">Más formas de entrega</p>
-        <div class="buy-buttons">
-            <button>Comprar ahora</button>
-            <button>Agregar al carrito</button>
-        </div>
-    </div>
-</div>
 
-<div class="related-products">
-    <h2>Productos relacionados</h2>
-    <div class="similar-products">
-        <img src="images/similar1.png" alt="Producto Similar 1">
-        <img src="images/similar2.png" alt="Producto Similar 2">
-        <img src="images/similar3.png" alt="Producto Similar 3">
-    </div>
-</div>
 
+    <div class="tabla-container">
+        <h1>Listado de Productos</h1>
+    
+        <!-- Filtro de Categorías -->
+        <div class="filtro-categorias">
+            <label for="categoria">Categoría:</label>
+            <select id="categoria">
+                <option value="">Todas</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="ropa">Moda</option>
+                <option value="hogar">Hogar</option>
+                <option value="hogar">Herramientas</option>
+                <option value="hogar">Cuidado personal</option>
+            </select>
+        </div>
+    
+        <!-- Tabla de Productos -->
+        <table id="tabla-productos" class="display">
+            <thead>
+                <tr>
+                    <th>Nombre del producto</th>
+                    <th>Costo</th>
+                    <th>Unidades disponibles</th>
+                    <th>Calificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los productos se cargarán dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
