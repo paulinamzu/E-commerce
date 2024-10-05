@@ -1,30 +1,34 @@
 $(document).ready(function() {
-    var productos = [
-      { nombre: "Smartphone", costo: "$500", unidades: 20, calificacion: "4.5", categoria: "tecnologia" },
-      { nombre: "Laptop", costo: "$1000", unidades: 10, calificacion: "4.8", categoria: "tecnologia" },
-      { nombre: "Camiseta", costo: "$20", unidades: 100, calificacion: "4.2", categoria: "ropa" },
-      { nombre: "Sofá", costo: "$300", unidades: 5, calificacion: "4.7", categoria: "hogar" },
-      
-    ];
-  
-    var table = $('#tabla-productos').DataTable({
-      data: productos,
-      columns: [
-        { data: 'nombre' },
-        { data: 'costo' },
-        { data: 'unidades' },
-        { data: 'calificacion' }
-      ]
+    let totalProductos = 0;
+    let totalPrecio = 0;
+
+    $('#agregarBtn').click(function() {
+        let nombreProducto = $('#producto').val();
+        let cantidadProducto = $('#cantidad').val();
+
+        // Validar que los campos tengan contenido
+        if (nombreProducto === "" || cantidadProducto === "") {
+            alert("Por favor, completa ambos campos.");
+            return;
+        }
+
+        // Suponiendo un precio fijo por ahora (puedes modificarlo para incluir precios)
+        const precioPorUnidad = 1599; // Cambia esto según el precio real
+        let subtotal = cantidadProducto * precioPorUnidad;
+
+        // Actualizar el total
+        totalProductos += parseInt(cantidadProducto);
+        totalPrecio += subtotal;
+
+        // Agregar el producto al carrito
+        $('#carrito').append(`<p>Has agregado <strong>${cantidadProducto}</strong> unidad(es) de <strong>${nombreProducto}</strong> al carrito. - $${subtotal}</p>`);
+
+        // Actualizar el resumen de compra
+        $('#totalProductos').text(totalProductos);
+        $('#totalPrecio').text(`$${totalPrecio}`);
+
+        // Limpiar los campos después de agregar al carrito
+        $('#producto').val("");
+        $('#cantidad').val("");
     });
-  
-    // Filtro por categoría
-    $('#categoria').on('change', function() {
-      var categoria = $(this).val();
-      if (categoria) {
-        table.column(0).search(categoria).draw();
-      } else {
-        table.column(0).search('').draw();
-      }
-    });
-  });
-  
+});
