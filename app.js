@@ -6,28 +6,28 @@ $(document).ready(function() {
         let nombreProducto = $('#producto').val();
         let cantidadProducto = $('#cantidad').val();
 
-        // Validar que los campos tengan contenido
+        // Esto valida que los campos tengan contenido
         if (nombreProducto === "" || cantidadProducto === "") {
             alert("Por favor, completa ambos campos.");
             return;
         }
 
-        // Suponiendo un precio fijo por ahora (puedes modificarlo para incluir precios)
-        const precioPorUnidad = 1599; // Cambia esto según el precio real
+        // 
+        const precioPorUnidad = 10; 
         let subtotal = cantidadProducto * precioPorUnidad;
 
-        // Actualizar el total
+        // actualiza el total
         totalProductos += parseInt(cantidadProducto);
         totalPrecio += subtotal;
 
-        // Agregar el producto al carrito
+        // agrega el producto al carrito
         $('#carrito').append(`<p>Has agregado <strong>${cantidadProducto}</strong> unidad(es) de <strong>${nombreProducto}</strong> al carrito. - $${subtotal}</p>`);
 
-        // Actualizar el resumen de compra
+        // actualiza el resumen de compra
         $('#totalProductos').text(totalProductos);
         $('#totalPrecio').text(`$${totalPrecio}`);
 
-        // Limpiar los campos después de agregar al carrito
+        // limpia los campos después de agregar al carrito
         $('#producto').val("");
         $('#cantidad').val("");
     });
