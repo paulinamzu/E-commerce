@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabla de Productos - Mercado Libre</title>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
     <div class="navbar">
         <div class="navbar-top">
             <img src="images/logo.png" alt="Logo" class="logo">
             <div class="search-bar">
-                <input type="text" placeholder="Buscar productos, marcas y más">
+                <input type="text" placeholder="Buscar">
             </div>
         </div>
         <div class="navbar-bottom">
@@ -35,42 +34,41 @@
             </div>
         </div>
     </div>
-
-
-    <div class="tabla-container">
-        <h1>Listado de Productos</h1>
-    
-        <!-- Filtro de Categorías -->
-        <div class="filtro-categorias">
-            <label for="categoria">Categoría:</label>
-            <select id="categoria">
-                <option value="">Todas</option>
-                <option value="tecnologia">Tecnología</option>
-                <option value="ropa">Moda</option>
-                <option value="hogar">Hogar</option>
-                <option value="hogar">Herramientas</option>
-                <option value="hogar">Cuidado personal</option>
-            </select>
+    <div class="cart-container">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo de Mercado Libre" class="logo">
         </div>
-    
-        <!-- Tabla de Productos -->
-        <table id="tabla-productos" class="display">
-            <thead>
-                <tr>
-                    <th>Nombre del producto</th>
-                    <th>Costo</th>
-                    <th>Unidades disponibles</th>
-                    <th>Calificación</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Los productos se cargarán dinámicamente -->
-            </tbody>
-        </table>
+        
+   <h1>Carrito de Compras</h1>
+
+        <!-- Contenedor para las secciones de Productos y Resumen de compra -->
+        <div class="cart-layout">
+
+            <!-- Sección de Productos -->
+            <div class="cart-items" id="carrito">
+                <h2>Productos</h2>
+            </div>
+        <div class="input-field">
+            <label for="producto">Nombre del producto</label>
+            <input type="text" id="producto" placeholder="Escribe el nombre del producto">
+        </div>
+
+        <div class="input-field">
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" placeholder="Cantidad">
+        </div>
+                    <!-- Sección de Resumen de compra -->
+                    <div class="resumen-compra">
+                        <h2>Resumen de compra</h2>
+                        <p>Producto(s): <span id="totalProductos">0</span></p>
+                        <p>Envio: <span id="costoEnvio">Gratis</span></p>
+                        <p>Total: <span id="totalPrecio">$0</span></p>
+                    </div>
+                </div>
+
+        <button id="agregarBtn">Comprar ahora</button>
     </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
