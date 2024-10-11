@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Página de Producto</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="navbar">
         <div class="navbar-top">
             <img src="images/logo.png" alt="Logo" class="logo">
@@ -34,41 +34,52 @@
             </div>
         </div>
     </div>
-    <div class="cart-container">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Logo de Mercado Libre" class="logo">
+<div class="product-container">
+    <div class="product-images">
+        <img src="images/producto.png" alt="POND'S Ácido Hialurónico Serum Booster" class="product-image">
+        <div class="thumbnail-images">
+            <img src="images/producto.png" alt="Thumbnail 1">
+            <img src="images/producto1.png" alt="Thumbnail 2">
+            <img src="images/producto2.png" alt="Thumbnail 3">
         </div>
-        
-   <h1>Carrito de Compras</h1>
-
-        
-        <div class="cart-layout">
-
-            <!-- Sección de Productos -->
-            <div class="cart-items" id="carrito">
-                <h2>Productos</h2>
-            </div>
-        <div class="input-field">
-            <label for="producto">Nombre del producto</label>
-            <input type="text" id="producto" placeholder="Escribe el nombre del producto">
-        </div>
-
-        <div class="input-field">
-            <label for="cantidad">Cantidad</label>
-            <input type="number" id="cantidad" placeholder="Cantidad">
-        </div>
-                    <!-- Sección de Resumen de compra -->
-                    <div class="resumen-compra">
-                        <h2>Resumen de compra</h2>
-                        <p>Producto(s): <span id="totalProductos">0</span></p>
-                        <p>Envio: <span id="costoEnvio">Gratis</span></p>
-                        <p>Total: <span id="totalPrecio">$0</span></p>
-                    </div>
-                </div>
-
-        <button id="agregarBtn">Comprar ahora</button>
     </div>
+    <div class="product-details">
+        <h1>POND'S Ácido Hialurónico Serum Booster 30g</h1>
+        <div class="stars">★★★★★</div>
+        <p>15 opiniones</p>
+        <p class="price">$168.00</p>
+        <p class="payment-methods">Ver métodos de pago</p>
+        <p class="delivery-info">Llega mañana</p>
+        <p class="more-delivery-options">Más formas de entrega</p>
+        <div class="buy-buttons">
+            <button>Comprar ahora</button>
+            <button>Agregar al carrito</button>
+        </div>
+    </div>
+</div>
 
-    <script src="app.js"></script>
+<div class="related-products">
+    <h2>Productos relacionados</h2>
+    <div class="similar-products">
+        <img src="images/similar1.png" alt="Producto Similar 1">
+        <img src="images/similar2.png" alt="Producto Similar 2">
+        <img src="images/similar3.png" alt="Producto Similar 3">
+    </div>
+</div>
+
+<div class="success-message" id="success-message">¡Gracias por tu compra!</div>
+
+<div class="delivery-info-box" id="delivery-info-box">
+    <h3>Opciones de entrega:</h3>
+    <ul>
+        <li>Envío Express</li>
+        <li>Recogida en tienda</li>
+        <li>Envío normal</li>
+    </ul>
+    <button id="close-delivery-info">Cerrar</button>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
