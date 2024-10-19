@@ -52,6 +52,7 @@
         <p class="payment-methods">Ver métodos de pago</p>
         <p class="delivery-info">Llega mañana</p>
         <p class="more-delivery-options">Más formas de entrega</p>
+
         <div class="buy-buttons">
             <button>Comprar ahora</button>
             <button>Agregar al carrito</button>
@@ -72,11 +73,20 @@
 
 <div class="delivery-info-box" id="delivery-info-box">
     <h3>Opciones de entrega:</h3>
-    <ul>
-        <li>Envío Express</li>
-        <li>Recoger en tienda</li>
-        <li>Envío normal</li>
-    </ul>
+    <form id="delivery-options">
+        <div>
+            <input type="radio" id="express" name="delivery" value="Envío Express">
+            <label for="express">Envío Express</label>
+        </div>
+        <div>
+            <input type="radio" id="pickup" name="delivery" value="Recoger en tienda">
+            <label for="pickup">Recoger en tienda</label>
+        </div>
+        <div>
+            <input type="radio" id="standard" name="delivery" value="Envío normal">
+            <label for="standard">Envío normal</label>
+        </div>
+    </form>
     <button id="close-delivery-info">Cerrar</button>
 </div>
 
