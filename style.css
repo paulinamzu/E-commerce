@@ -266,4 +266,66 @@ body {
 .delivery-info-box button:hover {
     background-color: #FF4500;
 }
-    
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.login-logo {
+    width: 100px; 
+    margin-bottom: 20px; 
+}
+
+.login-container h2 {
+    margin-bottom: 20px; 
+}
+
+.login-container div {
+    margin-bottom: 10px;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-container input,
+.login-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+.login-container button {
+    background-color: #FFC107; 
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.login-container button:hover {
+    background-color: #FFB400; 
+    transform: scale(1.05);
+}
+
+.login-container .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
