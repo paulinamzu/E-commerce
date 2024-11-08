@@ -3,113 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Producto</title>
+    <title>Producto</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+        <!--Login -->
+        <div class="login-container">
+            <img src="images/logo.png" alt="Logo" class="login-logo">
+            <h2>Iniciar sesión</h2>
+            <form id="login-form">
+                <div>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div>
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="error-message" id="error-message"></div>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
 
-      <!-- Formulario de inicio de sesión -->
-      <div class="login-container">
-        <img src="images/logo.png" alt="Logo de Mercado Libre" class="login-logo"> 
-        <h2>Iniciar sesión</h2>
-        <form id="login-form">
-            <div>
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" required>
+
+    <div class="all" style="display: none;">
+
+        <!-- Vista del Administrador -->
+        <div class="admin-view" style="display: none;">
+            <h1>Bienvenido, Administrador</h1>
+            <p>Aquí puedes gestionar productos, usuarios y realizar configuraciones avanzadas.</p>
+            
+            <div class="product-edit-container">
+                <h2>Editar Producto</h2>
+                
+                <div class="form-group">
+                    <label for="product-name">Nombre del Producto:</label>
+                    <input type="text" id="product-name" value="POND'S Ácido Hialurónico Serum Booster 30g">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-price">Precio:</label>
+                    <input type="number" id="product-price" value="168.00">
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-description">Descripción:</label>
+                    <textarea id="product-description">Serum con ácido hialurónico para mejorar la apariencia de la piel.</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="product-stock">Stock:</label>
+                    <input type="number" id="product-stock" value="150">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-image">URL de la Imagen del Producto:</label>
+                    <input type="text" id="product-image" value="images/producto.avif">
+                </div>
+
+                <button id="save-changes" class="save-btn">Guardar Cambios</button>
             </div>
-            <div>
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" required>
+        </div>
+
+        <!-- Vista del Usuario -->
+        <div class="user-view" style="display: none;">
+            <div class="navbar">
+                <div class="navbar-top">
+                    <img src="images/logo.png" alt="Logo" class="logo">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar productos, marcas y más...">
+                    </div>
+                </div>
+                <div class="navbar-bottom">
+                    <div class="left">
+                        <span>CP: 66359</span>
+                        <a href="#">Categorías</a>
+                        <a href="#">Ofertas</a>
+                        <a href="#">Historial</a>
+                        <a href="#">Supermercado</a>
+                        <a href="#">Moda</a>
+                        <a href="#">Ayuda</a>
+                    </div>
+                    <div class="right">
+                        <a href="#">Usuario</a>
+                        <a href="#">Compras</a>
+                        <a href="#">Favoritos</a>
+                        <i class="fas fa-bell"></i>
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                </div>
             </div>
-            <button type="submit">Iniciar Sesión</button>
-        </form>
-        <div class="error-message" id="error-message"></div>
-    </div>
-<div class="all" style="display:none;">
-    <div class="navbar">
-        <div class="navbar-top">
-            <img src="images/logo.png" alt="Logo" class="logo">
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar productos, marcas y más...">
+            <div class="product-container">
+                <div class="product-images">
+                    <img src="images/producto.avif" alt="POND'S Ácido Hialurónico Serum Booster" class="product-image">
+                    <div class="thumbnail-images">
+                        <img src="images/producto.avif" alt="Thumbnail 1">
+                        <img src="images/producto1.webp" alt="Thumbnail 2">
+                        <img src="images/producto2.webp" alt="Thumbnail 3">
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h1 id="product-name-display">POND'S Ácido Hialurónico Serum Booster 30g</h1>
+                    <div class="stars">★★★★★</div>
+                    <p>15 opiniones</p>
+                    <p class="price" id="product-price-display">$168.00</p>
+                    <p id="product-description-display">Serum con ácido hialurónico para mejorar la apariencia de la piel.</p>
+                    <p class="payment-methods">Ver métodos de pago</p>
+                    <p class="delivery-info">Llega mañana</p>
+                    <p class="more-delivery-options">Más formas de entrega</p>
+                    
+                    <div class="buy-buttons">
+                        <button>Comprar ahora</button>
+                        <button>Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <div class="related-products">
+                <h2>Productos relacionados</h2>
+                <div class="similar-products">
+                    <img src="images/similar1.jpg" alt="Producto Similar 1">
+                    <img src="images/similar2.png" alt="Producto Similar 2">
+                    <img src="images/similar3.jpg" alt="Producto Similar 3">
+                </div>
             </div>
         </div>
-        <div class="navbar-bottom">
-            <div class="left">
-                <span>CP: 66359</span>
-                <a href="#">Categorías</a>
-                <a href="#">Ofertas</a>
-                <a href="#">Historial</a>
-                <a href="#">Supermercado</a>
-                <a href="#">Moda</a>
-                <a href="#">Ayuda</a>
-            </div>
-            <div class="right">
-                <a href="#">Usuario</a>
-                <a href="#">Compras</a>
-                <a href="#">Favoritos</a>
-                <i class="fas fa-bell"></i>
-                <i class="fas fa-shopping-cart"></i>
-            </div>
-        </div>
     </div>
-<div class="product-container">
-    <div class="product-images">
-        <img src="images/producto.png" alt="POND'S Ácido Hialurónico Serum Booster" class="product-image">
-        <div class="thumbnail-images">
-            <img src="images/producto.png" alt="Thumbnail 1">
-            <img src="images/producto1.png" alt="Thumbnail 2">
-            <img src="images/producto2.png" alt="Thumbnail 3">
-        </div>
-    </div>
-    <div class="product-details">
-        <h1>POND'S Ácido Hialurónico Serum Booster 30g</h1>
-        <div class="stars">★★★★★</div>
-        <p>15 opiniones</p>
-        <p class="price">$168.00</p>
-        <p class="payment-methods">Ver métodos de pago</p>
-        <p class="delivery-info">Llega mañana</p>
-        <p class="more-delivery-options">Más formas de entrega</p>
 
-        <div class="buy-buttons">
-            <button>Comprar ahora</button>
-            <button>Agregar al carrito</button>
-        </div>
-    </div>
-</div>
 
-<div class="related-products">
-    <h2>Productos relacionados</h2>
-    <div class="similar-products">
-        <img src="images/similar1.png" alt="Producto Similar 1">
-        <img src="images/similar2.png" alt="Producto Similar 2">
-        <img src="images/similar3.png" alt="Producto Similar 3">
-    </div>
-</div>
-
-<div class="success-message" id="success-message">¡Gracias por tu compra!</div>
-
-<div class="delivery-info-box" id="delivery-info-box">
-    <h3>Opciones de entrega:</h3>
-    <form id="delivery-options">
-        <div>
-            <input type="radio" id="express" name="delivery" value="Envío Express">
-            <label for="express">Envío Express</label>
-        </div>
-        <div>
-            <input type="radio" id="pickup" name="delivery" value="Recoger en tienda">
-            <label for="pickup">Recoger en tienda</label>
-        </div>
-        <div>
-            <input type="radio" id="standard" name="delivery" value="Envío normal">
-            <label for="standard">Envío normal</label>
-        </div>
-    </form>
-    <button id="close-delivery-info">Cerrar</button>
-</div>
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
