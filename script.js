@@ -1,45 +1,13 @@
-const thumbnails = document.querySelectorAll('.thumbnail-images img');
-const mainImage = document.querySelector('.product-image');
-
-// Cambia la imagen principal al pasar el mouse sobre las miniaturas
-thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('mouseover', function() { 
-        mainImage.style.opacity = '0'; 
-        setTimeout(() => {
-            mainImage.src = this.src; 
-            mainImage.style.opacity = '1'; 
-        }, 300); 
-    });
-});
-
-// Mensaje de gracias por la compra
-const buyNowButton = document.querySelector('.buy-buttons button:first-child');
-const successMessage = document.getElementById('success-message');
-
-buyNowButton.addEventListener('click', function() {
-    successMessage.classList.add('show'); 
-    setTimeout(() => {
-        successMessage.classList.remove('show'); 
-    }, 3000);
-});
-
-// Se muestra el cuadro de más formas de entrega
-const moreDeliveryOptions = document.querySelector('.more-delivery-options');
-const deliveryInfoBox = document.getElementById('delivery-info-box');
-const closeDeliveryInfoButton = document.getElementById('close-delivery-info');
-
-moreDeliveryOptions.addEventListener('click', function() {
-    deliveryInfoBox.classList.add('show-delivery-info'); 
-});
-
-// Se cierra el cuadro de entrega
-closeDeliveryInfoButton.addEventListener('click', function() {
-    deliveryInfoBox.classList.remove('show-delivery-info'); // Oculta cuadro
-});
-
-// Autenticación de usuario
 const loginForm = document.getElementById('login-form');
 const errorMessage = document.getElementById('error-message');
+const allContent = document.querySelector('.all');
+const adminView = document.querySelector('.admin-view');
+const userView = document.querySelector('.user-view');
+
+const usuarios = [
+    { email: "admin@example.com", password: "admin123", role: "admin" },
+    { email: "usuario@example.com", password: "user123", role: "user" }
+];
 
 loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -47,15 +15,36 @@ loginForm.addEventListener('submit', function(event) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    
-    if (email === "usuario@example.com" && password === "123") {
-        errorMessage.textContent = ""; 
+    // Validar credenciales y obtener rol
+    const usuario = usuarios.find(u => u.email === email && u.password === password);
 
-       
-        document.querySelector('.all').style.display = 'block'; 
+    if (usuario) {
+        errorMessage.textContent = ""; 
+        allContent.style.display = 'block'; 
         document.querySelector('.login-container').style.display = 'none'; 
+
+        // Mostrar vista según rol
+        if (usuario.role === 'admin') {
+            adminView.style.display = 'block';
+            userView.style.display = 'none';
+        } else if (usuario.role === 'user') {
+            userView.style.display = 'block';
+            adminView.style.display = 'none';
+        }
     } else {
         errorMessage.textContent = "Correo o contraseña incorrectos.";
     }
 });
 
+document.getElementById('save-changes')?.addEventListener('click', function() {
+    const productName = document.getElementById('product-name').value;
+    const productPrice = document.getElementById('product-price').value;
+  
+    if (productName && productPrice) {
+        document.getElementById('product-name-display').textContent = productName;
+        document.getElementById('product-price-display').textContent = `$${productPrice}`;
+        alert('Cambios guardados con éxito');
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
+});
