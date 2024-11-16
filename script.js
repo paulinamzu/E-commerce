@@ -9,13 +9,48 @@ const usuarios = [
     { email: "usuario@example.com", password: "user123", role: "user" }
 ];
 
+const forgotPasswordLink = document.getElementById('forgot-password');
+const changePasswordContainer = document.querySelector('.change-password-container');
+const changePasswordForm = document.getElementById('change-password-form');
+const changePasswordError = document.getElementById('change-password-error');
+
+forgotPasswordLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    document.querySelector('.login-container').style.display = 'none';
+    changePasswordContainer.style.display = 'block';
+});
+
+changePasswordForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const currentPassword = document.getElementById('current-password').value;
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+
+    const usuario = usuarios.find(u => u.email === "usuario@example.com"); 
+
+    if (usuario) {
+        if (usuario.password === currentPassword) {
+            if (newPassword === confirmPassword) {
+                usuario.password = newPassword; 
+                changePasswordError.textContent = "Contraseña cambiada con éxito!";
+                changePasswordError.style.color = "green";
+            } else {
+                changePasswordError.textContent = "Las contraseñas no coinciden.";
+            }
+        } else {
+            changePasswordError.textContent = "Contraseña actual incorrecta.";
+        }
+    }
+});
+
 loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Validar credenciales y obtener rol
     const usuario = usuarios.find(u => u.email === email && u.password === password);
 
     if (usuario) {
@@ -23,7 +58,6 @@ loginForm.addEventListener('submit', function(event) {
         allContent.style.display = 'block'; 
         document.querySelector('.login-container').style.display = 'none'; 
 
-        // Mostrar vista según rol
         if (usuario.role === 'admin') {
             adminView.style.display = 'block';
             userView.style.display = 'none';
@@ -33,18 +67,5 @@ loginForm.addEventListener('submit', function(event) {
         }
     } else {
         errorMessage.textContent = "Correo o contraseña incorrectos.";
-    }
-});
-
-document.getElementById('save-changes')?.addEventListener('click', function() {
-    const productName = document.getElementById('product-name').value;
-    const productPrice = document.getElementById('product-price').value;
-  
-    if (productName && productPrice) {
-        document.getElementById('product-name-display').textContent = productName;
-        document.getElementById('product-price-display').textContent = `$${productPrice}`;
-        alert('Cambios guardados con éxito');
-    } else {
-        alert('Por favor, complete todos los campos.');
     }
 });
