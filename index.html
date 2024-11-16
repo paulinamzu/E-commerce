@@ -26,6 +26,36 @@
             </form>
         </div>
 
+    <div class="forgot-password-link">
+        <a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a>
+    </div>
+    
+   <div class="change-password-container">
+    <h3>Cambiar Contraseña</h3>
+    <form id="change-password-form">
+        <div>
+            <label for="role-select">Selecciona el rol:</label>
+            <select id="role-select">
+                <option value="user">Usuario</option>
+                <option value="admin">Administrador</option>
+            </select>
+        </div>
+        <div>
+            <label for="current-password">Contraseña Actual</label>
+            <input type="password" id="current-password" name="current-password" required />
+        </div>
+        <div>
+            <label for="new-password">Nueva Contraseña:</label>
+            <input type="password" id="new-password" placeholder="Introduce la nueva contraseña" required>
+        </div>
+        <div>
+            <label for="confirm-password">Confirmar Contraseña:</label>
+            <input type="password" id="confirm-password" placeholder="Confirma la nueva contraseña" required>
+        </div>
+        <button type="submit">Cambiar Contraseña</button>
+        <div class="change-password-error" id="change-password-error"></div>
+    </form>
+</div>
 
     <div class="all" style="display: none;">
 
